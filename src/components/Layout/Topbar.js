@@ -4,14 +4,13 @@ import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
 import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
-import Badge from '@mui/material/Badge'
 import MenuItem from '@mui/material/MenuItem'
 import Menu from '@mui/material/Menu'
-import MenuIcon from '@mui/icons-material/Menu'
-import AccountCircle from '@mui/icons-material/AccountCircle'
-import MailIcon from '@mui/icons-material/Mail'
-import NotificationsIcon from '@mui/icons-material/Notifications'
+import NearMeOutlinedIcon from '@mui/icons-material/NearMeOutlined'
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
+import Avatar from '@mui/material/Avatar'
+import { Divider } from '@mui/material'
 
 export default function Topbar() {
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -75,32 +74,27 @@ export default function Topbar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}>
       <MenuItem>
-        <IconButton size='large' aria-label='show 4 new mails' color='inherit'>
-          <Badge badgeContent={4} color='error'>
-            <MailIcon />
-          </Badge>
+        <IconButton size='large'>
+          <NearMeOutlinedIcon />
         </IconButton>
-        <p>Messages</p>
+        <p>Send</p>
       </MenuItem>
       <MenuItem>
-        <IconButton
-          size='large'
-          aria-label='show 17 new notifications'
-          color='inherit'>
-          <Badge badgeContent={17} color='error'>
-            <NotificationsIcon />
-          </Badge>
+        <IconButton size='large'>
+          <HelpOutlineOutlinedIcon />
         </IconButton>
-        <p>Notifications</p>
+        <p>FAQs</p>
       </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size='large'
-          aria-label='account of current user'
           aria-controls='primary-search-account-menu'
-          aria-haspopup='true'
-          color='inherit'>
-          <AccountCircle />
+          aria-haspopup='true'>
+          <Avatar
+            sx={{ width: '25px', height: '25px' }}
+            alt='avatar'
+            src={'assets/img/mock-image.jpg'}
+          />
         </IconButton>
         <p>Profile</p>
       </MenuItem>
@@ -109,50 +103,44 @@ export default function Topbar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position='static'>
+      <AppBar
+        sx={{ backgroundColor: 'white', boxShadow: 'none' }}
+        position='static'>
         <Toolbar>
-          <IconButton
-            size='large'
-            edge='start'
-            color='inherit'
-            aria-label='open drawer'
-            sx={{ mr: 2 }}>
-            <MenuIcon />
-          </IconButton>
           <Typography
             variant='h6'
             noWrap
             component='div'
-            sx={{ display: { xs: 'none', sm: 'block' } }}>
+            sx={{
+              display: {
+                xs: 'none',
+                sm: 'block',
+                color: '#1976d2',
+                marginLeft: '50px',
+                fontWeight: '600',
+              },
+            }}>
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton
-              size='large'
-              aria-label='show 4 new mails'
-              color='inherit'>
-              <Badge badgeContent={4} color='error'>
-                <MailIcon />
-              </Badge>
+            <IconButton size='large'>
+              <NearMeOutlinedIcon />
             </IconButton>
-            <IconButton
-              size='large'
-              aria-label='show 17 new notifications'
-              color='inherit'>
-              <Badge badgeContent={17} color='error'>
-                <NotificationsIcon />
-              </Badge>
+            <IconButton size='large'>
+              <HelpOutlineOutlinedIcon />
             </IconButton>
             <IconButton
               size='large'
               edge='end'
-              aria-label='account of current user'
               aria-controls={menuId}
               aria-haspopup='true'
-              onClick={handleProfileMenuOpen}
-              color='inherit'>
-              <AccountCircle />
+              onClick={handleProfileMenuOpen}>
+              <Avatar
+                sx={{ width: '25px', height: '25px' }}
+                alt='avatar'
+                src={'assets/img/mock-image.jpg'}
+              />
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
@@ -161,8 +149,7 @@ export default function Topbar() {
               aria-label='show more'
               aria-controls={mobileMenuId}
               aria-haspopup='true'
-              onClick={handleMobileMenuOpen}
-              color='inherit'>
+              onClick={handleMobileMenuOpen}>
               <MoreVertIcon />
             </IconButton>
           </Box>
@@ -170,6 +157,7 @@ export default function Topbar() {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
+      <Divider />
     </Box>
   )
 }

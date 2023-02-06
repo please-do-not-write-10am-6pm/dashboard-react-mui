@@ -59,7 +59,10 @@ const NotFound = () => {
         <span>NotFound</span>
       </section>
       <div className={classes.linkContainer}>
-        <div href='/' className={classes.moreLink} onClick={() => navigate(-1)}>
+        <div
+          href='/'
+          className={classes.moreLink}
+          onClick={() => navigate('/')}>
           Go Back
         </div>
       </div>
