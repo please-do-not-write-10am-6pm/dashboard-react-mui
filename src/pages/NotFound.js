@@ -5,7 +5,6 @@ import makeStyles from '@mui/styles/makeStyles'
 const useStyles = makeStyles(() => ({
   notFoundCont: {
     position: 'fixed',
-    backgroundColor: '#416475',
     color: '#92a4ad',
     height: '100%',
     width: '100%',

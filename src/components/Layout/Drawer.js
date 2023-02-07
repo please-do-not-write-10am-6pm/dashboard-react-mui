@@ -69,6 +69,7 @@ const SidebarDrawer = () => {
               boxSizing: 'border-box',
               width: drawerWidth,
               position: 'relative !important',
+              minHeight: 'calc(100vh - 64px)',
             },
           }}
           open>
